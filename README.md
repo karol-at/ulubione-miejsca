@@ -6,8 +6,14 @@ Projekt na WZG
 
 Tablica miejsc:
 
--userId: int
--name: string
--lat: int
--lon: int
--desc: string
+- userId: int
+- name: string
+- lat: int
+- lon: int
+- desc: string
+
+Tablica użytkowników:
+
+- userId: int
+- username: string
+- password: string
