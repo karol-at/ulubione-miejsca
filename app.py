@@ -1,4 +1,5 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, request
+import database
 
 app = Flask(__name__)
 
@@ -8,4 +9,7 @@ def index():
 
 @app.route('/api/places', methods=['GET','POST'])
 def places():
-    return 'placeholder'
+    if request.method == 'POST':
+        database.add_place(request)
+    elif request.method == 'GET':
+        database.get_places(request.cookies.get('sessionId'))
