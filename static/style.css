@@ -12,4 +12,19 @@ body {
 
 #menu {
     flex-grow: 1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+}
+
+#scroll {
+    display: flex;
+    height: min-content;
+    flex-direction: column;
+    overflow: scroll;
+}
+
+.location {
+    min-height: 80px;
 }
