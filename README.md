@@ -13,9 +13,11 @@ Tablica miejsc:
 - lat: int
 - lon: int
 - desc: string
+- icon: string
 
 Tablica użytkowników:
 
 - userId: int
 - username: string
 - password: string
+- sessionToken: string
