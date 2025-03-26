@@ -4,7 +4,8 @@
     "editor.defaultColorDecorators": "never",
     "editor.wordBasedSuggestions": "off",
     "editor.tabSize": 4,
-    "editor.indentSize": "tabSize"
+    "editor.indentSize": "tabSize",
+    "editor.defaultFormatter": "ms-python.autopep8"
   },
   "[javascript]": {
     "editor.maxTokenizationLineLength": 2500,
