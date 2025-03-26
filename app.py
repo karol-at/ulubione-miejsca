@@ -13,3 +13,7 @@ def places():
         database.add_place(request)
     elif request.method == 'GET':
         database.get_places(request.cookies.get('sessionId'))
+
+@app.post('/register')
+def register():
+    return 
