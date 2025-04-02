@@ -6,7 +6,7 @@ import user
 con = sqlite3.connect('baza.db')
 cur = con.cursor()
 cur.execute('''
-            CREATE TABLE IF NOT EXIST users(
+            CREATE TABLE IF NOT EXISTS users(
             user_id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT,
             password TEXT,
