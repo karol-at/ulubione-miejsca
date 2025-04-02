@@ -12,15 +12,17 @@ class user(TypedDict):
 
 
 def register(args: user) -> str:
-    args["password"] = sha256(args["password"].encode()).hexdigest()
+    args["password"] = str(sha256(args["password"].encode()).hexdigest())
     args["session_hash"] = str(time.time())
     con = sqlite3.connect('baza.db')
     cur = con.cursor()
-    cur.execute(f'''
-        INSERT INTO users VALUES  (
-                {args["user_id"]},
-                {args["username"]},
-                {args["password"]},
-                {args["session_hash"]}
-                )''')
+    cur.execute(
+        'INSERT INTO users VALUES (?,?,?,?)',
+        (
+            args["user_id"],
+            args["username"],
+            args["password"],
+            args["session_hash"]
+        )
+    )
     return args["session_hash"]
