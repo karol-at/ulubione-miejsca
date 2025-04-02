@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import database
 import sqlite3
+import user
 
 con = sqlite3.connect('baza.db')
 cur = con.cursor()
@@ -32,4 +33,4 @@ def places():
 
 @app.post('/register')
 def register():
-    return
+    return user.register(request.json)
