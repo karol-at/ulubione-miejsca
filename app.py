@@ -18,7 +18,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    # TODO: update with logic checking wether the user is logged in
+    return render_template('index.jinja', logged_in=False)
 
 
 @app.route('/api/places', methods=['GET', 'POST'])
