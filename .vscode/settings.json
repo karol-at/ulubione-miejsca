@@ -18,5 +18,14 @@
     "editor.tabSize": 2
   },
   "files.defaultLanguage": "${activeEditorLanguage}",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "sqltools.useNodeRuntime": true,
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "name": "ulubione miejsca",
+      "database": "${workspaceFolder:ulubione-miejsca}/baza.db"
+    }
+  ]
 }
