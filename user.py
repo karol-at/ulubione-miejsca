@@ -4,6 +4,7 @@ from hashlib import sha256
 import time
 from database import execute_query
 
+
 class user(TypedDict):
     user_id: int
     username: str
@@ -23,3 +24,26 @@ def register(args: user) -> str:
         )
     )
     return args["session_hash"]
+
+
+def login(args: user) -> str:
+    args["password"] = str(sha256(args["password"].encode()).hexdigest())
+    args["session_hash"] = str(time.time())
+    result = execute_query(
+        'SELECT user_id FROM users WHERE (username = ? AND password = ?)',
+        (
+            args["username"],
+            args["password"]
+        )
+    )
+    if len(result) > 0:
+        execute_query(
+            'UPDATE users SET session_hash = ? WHERE username = ?',
+            (
+                args["session_hash"],
+                args["username"]
+            )
+        )
+        return result
+    else:
+        return 'Logowanie nie powiodło się :<'

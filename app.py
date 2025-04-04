@@ -34,3 +34,6 @@ def places():
 @app.post('/register')
 def register():
     return user.register(request.json)
+@app.post('/login')
+def login():
+    return user.login(request.json)
