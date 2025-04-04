@@ -13,6 +13,15 @@ class user(TypedDict):
 
 
 def register(args: user) -> str:
+    user_check = execute_query(
+        'SELECT user_id FROM users WHERE username = ?',
+        (
+            args["username"]
+        )
+    )
+    if len(user_check) > 0:
+        return 'Name was taken (out for dinner)'
+
     args["password"] = str(sha256(args["password"].encode()).hexdigest())
     args["session_hash"] = str(time.time())
     execute_query(
