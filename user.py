@@ -16,7 +16,7 @@ def register(args: user) -> str:
     user_check = execute_query(
         'SELECT user_id FROM users WHERE username = ?',
         (
-            args["username"]
+            args["username"],
         )
     )
     if len(user_check) > 0:
