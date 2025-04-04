@@ -2,7 +2,7 @@ import sqlite3
 from typing import TypedDict
 from hashlib import sha256
 import time
-
+from database import execute_query
 
 class user(TypedDict):
     user_id: int
@@ -14,9 +14,7 @@ class user(TypedDict):
 def register(args: user) -> str:
     args["password"] = str(sha256(args["password"].encode()).hexdigest())
     args["session_hash"] = str(time.time())
-    con = sqlite3.connect('baza.db')
-    cur = con.cursor()
-    cur.execute(
+    execute_query(
         'INSERT INTO users ("username","password","session_hash") VALUES (?,?,?)',
         (
             args["username"],
@@ -24,6 +22,4 @@ def register(args: user) -> str:
             args["session_hash"]
         )
     )
-    con.commit()
-    con.close()
     return args["session_hash"]
