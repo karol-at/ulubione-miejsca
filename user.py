@@ -17,12 +17,13 @@ def register(args: user) -> str:
     con = sqlite3.connect('baza.db')
     cur = con.cursor()
     cur.execute(
-        'INSERT INTO users VALUES (?,?,?,?)',
+        'INSERT INTO users ("username","password","session_hash") VALUES (?,?,?)',
         (
-            args["user_id"],
             args["username"],
             args["password"],
             args["session_hash"]
         )
     )
+    con.commit()
+    con.close()
     return args["session_hash"]
