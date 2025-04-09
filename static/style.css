@@ -42,6 +42,7 @@ body {
 }
 
 #login-window{
+    padding: 20px;
     position: absolute;
     height: 600px;
     width: 500px;
@@ -49,4 +50,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#form-error-alert {
+    display: none;
+    border-radius: 10px;
+    margin: 3px;
+    border-color: hsl(360, 80%, 50%);
+    background-color: hsl(360, 80%, 85%);
+    color: hsl(360, 80%, 50%);
+    border: solid 1px;
+    padding: 10px;
 }

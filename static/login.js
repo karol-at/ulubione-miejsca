@@ -17,9 +17,11 @@ registerForm.submit.onclick = async (e) => {
     registerForm.password.value == "" ||
     registerForm.repassword.value == ""
   ) {
+    formError.style.display = 'block'
     formError.innerText = "Fill out all register fields";
   }
   if (registerForm.password.value != registerForm.repassword.value) {
+    formError.style.display = 'block'
     formError.innerText = "Passwords must match";
   }
 
@@ -44,6 +46,7 @@ loginForm.submit.onclick = async (e) => {
     loginForm.username.value == "" ||
     loginForm.password.value == ""
   ) {
+    formError.style.display = 'block'
     formError.innerText = "Fill out all login fields"
   }
 
