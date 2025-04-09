@@ -5,6 +5,11 @@ import time
 from database import execute_query
 
 
+class user_error(Exception):
+    def __init__(self, error_message):
+        self.error_message = error_message
+
+
 class user(TypedDict):
     user_id: int
     username: str
@@ -53,6 +58,6 @@ def login(args: user) -> str:
                 args["username"]
             )
         )
-        return result
+        return str(args['session_hash'])
     else:
-        return 'Logowanie nie powiodło się :<'
+        raise user_error('brak w bazie')

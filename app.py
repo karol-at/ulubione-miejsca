@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request
-import database
+from flask import Flask, render_template, request, make_response
 import sqlite3
 import user
+import json
 
 con = sqlite3.connect('baza.db')
 cur = con.cursor()
@@ -19,6 +19,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    # session_hash = request.cookies.get('session_hash')
+    # resp = make_response(render_template(...))
+    # resp.set_cookie('session_hash', 'the username')
     # TODO: update with logic checking wether the user is logged in
     return render_template('index.jinja', logged_in=False)
 
@@ -34,6 +37,14 @@ def places():
 @app.post('/register')
 def register():
     return user.register(request.json)
+
+
 @app.post('/login')
 def login():
-    return user.login(request.json)
+    try:
+        loging = user.login(request.json)
+    except user.user_error as err:
+        return {'status': err.error_message}
+    res = make_response({'status': 'ok'})
+    res.set_cookie('session_id', loging)
+    return res
