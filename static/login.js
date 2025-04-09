@@ -35,3 +35,24 @@ registerForm.submit.onclick = async (e) => {
   const data = await res.json();
   //TODO: Add response handling
 };
+
+loginForm.submit.onclick = async (e) => {
+  if (
+    loginForm.username.value == "" ||
+    loginForm.password.value == ""
+  ) return;
+
+  const res = await fetch(
+    "/login",
+    {
+      method: "POST",
+      body: JSON.stringify({
+        username: loginForm.username.value,
+        password: loginForm.password.value,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    },
+  ).then(JSON.parse);
+};
