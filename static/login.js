@@ -24,8 +24,6 @@ registerForm.submit.onclick = async (e) => {
     {
       method: "POST",
       body: JSON.stringify({
-        //TODO: Remove the need for user_id on the backend
-        user_id: 1,
         username: registerForm.username.value,
         password: registerForm.password.value,
       }),
