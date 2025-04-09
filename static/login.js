@@ -10,6 +10,7 @@ const registerForm = {
   submit: document.getElementById("register-submit"),
 };
 const formError = document.getElementById("form-error-alert");
+const loginOverlay = document.getElementById("login-overlay");
 
 registerForm.submit.onclick = async (e) => {
   if (
@@ -17,11 +18,11 @@ registerForm.submit.onclick = async (e) => {
     registerForm.password.value == "" ||
     registerForm.repassword.value == ""
   ) {
-    formError.style.display = 'block'
+    formError.style.display = "block";
     formError.innerText = "Fill out all register fields";
   }
   if (registerForm.password.value != registerForm.repassword.value) {
-    formError.style.display = 'block'
+    formError.style.display = "block";
     formError.innerText = "Passwords must match";
   }
 
@@ -46,8 +47,8 @@ loginForm.submit.onclick = async (e) => {
     loginForm.username.value == "" ||
     loginForm.password.value == ""
   ) {
-    formError.style.display = 'block'
-    formError.innerText = "Fill out all login fields"
+    formError.style.display = "block";
+    formError.innerText = "Fill out all login fields";
   }
 
   const res = await fetch(
@@ -63,4 +64,11 @@ loginForm.submit.onclick = async (e) => {
       },
     },
   ).then((res) => res.json());
+  switch (res.status) {
+    case "ok":
+      loginOverlay.style.display = "none";
+      break;
+    case "brak w bazie":
+      formError.innerText = "Incorrect login credentials"
+  }
 };
