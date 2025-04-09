@@ -31,8 +31,7 @@ registerForm.submit.onclick = async (e) => {
         "Content-Type": "application/json",
       },
     },
-  );
-  const data = await res.json();
+  ).then(res => res.json());
   //TODO: Add response handling
 };
 
@@ -54,5 +53,5 @@ loginForm.submit.onclick = async (e) => {
         "Content-Type": "application/json",
       },
     },
-  ).then(JSON.parse);
+  ).then(res => res.json());
 };
