@@ -25,8 +25,7 @@ def register(args: user) -> str:
         )
     )
     if len(user_check) > 0:
-        return 'Name was taken (out for dinner)'
-
+        raise user_error('nazwa zajęta')
     args["password"] = str(sha256(args["password"].encode()).hexdigest())
     args["session_hash"] = str(time.time())
     execute_query(
@@ -37,6 +36,7 @@ def register(args: user) -> str:
             args["session_hash"]
         )
     )
+
     return args["session_hash"]
 
 
