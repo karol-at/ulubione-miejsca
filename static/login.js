@@ -9,15 +9,19 @@ const registerForm = {
   repassword: document.getElementById("register-repassword"),
   submit: document.getElementById("register-submit"),
 };
+const formError = document.getElementById("form-error-alert");
 
-//TODO: Add proper handling for invalid inputs
 registerForm.submit.onclick = async (e) => {
   if (
     registerForm.username.value == "" ||
     registerForm.password.value == "" ||
     registerForm.repassword.value == ""
-  ) return;
-  if (registerForm.password.value != registerForm.repassword.value) return;
+  ) {
+    formError.innerText = "Fill out all register fields";
+  }
+  if (registerForm.password.value != registerForm.repassword.value) {
+    formError.innerText = "Passwords must match";
+  }
 
   const res = await fetch(
     "/register",
@@ -31,7 +35,7 @@ registerForm.submit.onclick = async (e) => {
         "Content-Type": "application/json",
       },
     },
-  ).then(res => res.json());
+  ).then((res) => res.json());
   //TODO: Add response handling
 };
 
@@ -39,7 +43,9 @@ loginForm.submit.onclick = async (e) => {
   if (
     loginForm.username.value == "" ||
     loginForm.password.value == ""
-  ) return;
+  ) {
+    formError.innerText = "Fill out all login fields"
+  }
 
   const res = await fetch(
     "/login",
@@ -53,5 +59,5 @@ loginForm.submit.onclick = async (e) => {
         "Content-Type": "application/json",
       },
     },
-  ).then(res => res.json());
+  ).then((res) => res.json());
 };
