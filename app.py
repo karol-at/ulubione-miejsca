@@ -36,7 +36,13 @@ def places():
 
 @app.post('/register')
 def register():
-    return user.register(request.json)
+    try:
+        reg = user.register(request.json)
+    except user.user_error as err:
+        return {'status': err.error_message}
+    res = make_response({'status': 'ok'})
+    res.set_cookie('session_id', reg)
+    return res
 
 
 @app.post('/login')
