@@ -1,4 +1,3 @@
-import sqlite3
 from typing import TypedDict
 from hashlib import sha256
 import time
@@ -15,6 +14,19 @@ class user(TypedDict):
     username: str
     password: str
     session_hash: str
+
+
+def loged_check(args: str) -> bool:
+    check = execute_query(
+        'SELECT * FROM users  WHERE session_hash =?',
+        (
+            args,
+        )
+    )
+    if len(check) > 0:
+        return True
+    else:
+        return False
 
 
 def register(args: user) -> str:

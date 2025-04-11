@@ -19,11 +19,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # session_hash = request.cookies.get('session_hash')
-    # resp = make_response(render_template(...))
-    # resp.set_cookie('session_hash', 'the username')
-    # TODO: update with logic checking wether the user is logged in
-    return render_template('index.jinja', logged_in=False)
+    session_hash = request.cookies.get('session_id')
+    loged= user.loged_check(session_hash)        
+    return render_template('index.jinja', logged_in=loged)
 
 
 @app.route('/api/places', methods=['GET', 'POST'])
