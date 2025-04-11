@@ -49,6 +49,7 @@ loginForm.submit.onclick = async (e) => {
   ) {
     formError.style.display = "block";
     formError.innerText = "Fill out all login fields";
+    return;
   }
 
   const res = await fetch(
