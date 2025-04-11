@@ -13,10 +13,33 @@ const newPlaceForm = {
     name: document.getElementById("place-name"),
     submit: document.getElementById("place-submit"),
 };
+let latlng;
 
-document.onclick = (e) => {if (e.target.contains(newPlaceForm.dialog)) newPlaceForm.dialog.close()  }
+document.onclick = (e) => {
+    if (e.target.contains(newPlaceForm.dialog)) newPlaceForm.dialog.close();
+};
 
+newPlaceForm.submit.onclick = () => {
+    if(newPlaceForm.name.value === "") return;
+    fetch(
+        "/places",
+        {
+            method: "POST",
+            body: JSON.stringify({
+                latitude: latlng.lat,
+                longitude: latlng.lng,
+                name: newPlaceForm.name.value,
+                //TODO: add icon selection
+                icon: "placeholder",
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        },
+    );
+};
 
 map.on("click", async (e) => {
-    newPlaceForm.dialog.showModal()
-})
+    newPlaceForm.dialog.showModal();
+    latlng = e.latlng;
+});

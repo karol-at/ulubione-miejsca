@@ -30,7 +30,7 @@ body {
     min-height: 80px;
 }
 
-#login-overlay{
+#login-overlay {
     z-index: 10;
     background-color: rgba(0, 0, 0, 40%);
     position: absolute;
@@ -41,7 +41,7 @@ body {
     align-items: center;
 }
 
-#login-window{
+#login-window {
     padding: 20px;
     position: absolute;
     height: 600px;
