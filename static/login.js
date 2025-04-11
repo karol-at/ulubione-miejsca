@@ -20,10 +20,12 @@ registerForm.submit.onclick = async (e) => {
   ) {
     formError.style.display = "block";
     formError.innerText = "Fill out all register fields";
+    return;
   }
   if (registerForm.password.value != registerForm.repassword.value) {
     formError.style.display = "block";
     formError.innerText = "Passwords must match";
+    return;
   }
 
   const res = await fetch(
@@ -39,7 +41,13 @@ registerForm.submit.onclick = async (e) => {
       },
     },
   ).then((res) => res.json());
-  //TODO: Add response handling
+  switch (res.status) {
+    case "ok":
+      loginOverlay.style.display = "none";
+      break;
+    case "nazwa zajęta":
+      formError.innerText = "Usenrname taken";
+  }
 };
 
 loginForm.submit.onclick = async (e) => {
@@ -70,6 +78,6 @@ loginForm.submit.onclick = async (e) => {
       loginOverlay.style.display = "none";
       break;
     case "brak w bazie":
-      formError.innerText = "Incorrect login credentials"
+      formError.innerText = "Incorrect login credentials";
   }
 };
