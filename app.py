@@ -11,6 +11,16 @@ cur.execute('''
             username TEXT,
             password TEXT,
             session_hash TEXT 
+            );
+            CREATE TABLE IF NOT EXISTS places(
+            place_id INTEGER PRIMARY KEY AUTOINCREMENT, 
+            user_id INTEGER REFERENCES users (user_id),
+            place_name TEXT,
+            latitude REAL,
+            longitude REAL,
+            ulubione INTEGER, 
+            ico TEXT
+
             )''')
 
 
@@ -20,7 +30,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     session_hash = request.cookies.get('session_id')
-    loged= user.loged_check(session_hash)        
+    loged = user.loged_check(session_hash)
     return render_template('index.jinja', logged_in=loged)
 
 
