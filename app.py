@@ -32,13 +32,18 @@ def index():
     return render_template('index.jinja', logged_in=loged)
 
 
-@app.route('/places', methods=['GET', 'POST'])
+@app.route('/places', methods=['GET', 'POST', 'DELETE'])
 def place():
     if request.method == 'POST':
         places.add_place(request.json, request.cookies.get('session_id'))
         return {'status': 'ok'}
     elif request.method == 'GET':
-        places.get_places(request.cookies.get('sessionId'))
+        places.get_places(request.cookies.get('session_id'))
+        return {'status': 'ok'}
+    elif request.method == 'DELETE':
+        places.del_places(request.cookies.get(
+            'session_id'), request.json['place_id'])
+        return {'status': 'ok'}
 
 
 @app.post('/register')
