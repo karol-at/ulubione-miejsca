@@ -38,8 +38,8 @@ def place():
         places.add_place(request.json, request.cookies.get('session_id'))
         return {'status': 'ok'}
     elif request.method == 'GET':
-        places.get_places(request.cookies.get('session_id'))
-        return {'status': 'ok'}
+        return places.get_places(request.cookies.get('session_id'))
+        
     elif request.method == 'DELETE':
         places.del_places(request.cookies.get(
             'session_id'), request.json['place_id'])
