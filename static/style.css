@@ -7,7 +7,7 @@ body {
 #map {
     width: 80%;
     height: 100vh;
-    border-right: 3px solid black;
+    border-right: 3px solid rgb(92, 88, 88);
     z-index: 1;
 }
 
@@ -39,28 +39,113 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s;
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInLogin {
+    0% {
+        height: 300px;
+        width: 400px;
+        opacity: 0;
+    }
+
+    100% {
+        height: 500px;
+        width: 400px;
+        opacity: 1;
+    }
 }
 
 #login-window {
     padding: 20px;
     position: absolute;
-    height: 600px;
-    width: 500px;
-    background-color: white;
+    height: 500px;
+    width: 400px;
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 1;
+    box-shadow: 2px 2px 5px rgb(87, 86, 86);
+    animation-name: fadeInLogin;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s
+}
+
+.form-major-text {
+    color: #001427;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+
+.form-input {
+    color: #001427;
+    background-color: #e4e6d7;
+    border-color: #95B17E;
+    border-radius: 5px;
+    border-style: none;
+    padding: 7px;
+    margin: 5px;
+}
+
+.form-submit {
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #86c922;
+    box-shadow: 0 5px #67a30d;
+    font-weight: bold;
+    margin: 10px;
+    border-radius: 10px;
+    transition-duration: 0.1s;
+}
+
+.form-submit:hover {
+    background-color: #8cd421;
+    box-shadow: 0 4px #67a30d;
+    transform: translateY(1px)
+}
+
+.form-submit:active {
+    box-shadow: 0 0 #67a30d;
+    transform: translateY(5px);
+}
+
+#login-window> {
+    margin-bottom: 10px;
 }
 
 #form-error-alert {
     display: none;
-    border-radius: 10px;
-    margin: 3px;
-    border-color: hsl(360, 80%, 50%);
-    background-color: hsl(360, 80%, 85%);
-    color: hsl(360, 80%, 50%);
-    border: solid 1px;
-    padding: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #F40014;
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-duration: 0.2s;
 }
 
 #new-place {
