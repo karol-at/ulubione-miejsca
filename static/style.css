@@ -7,7 +7,7 @@ body {
 #map {
     width: 80%;
     height: 100vh;
-    border-right: 3px solid rgb(92, 88, 88);
+    border-right: 2px solid rgb(163, 177, 145);
     z-index: 1;
 }
 
@@ -99,7 +99,6 @@ body {
 .form-input {
     color: #001427;
     background-color: #e4e6d7;
-    border-color: #95B17E;
     border-radius: 5px;
     border-style: none;
     padding: 7px;
@@ -150,11 +149,73 @@ body {
 
 #new-place {
     z-index: 11;
-    height: 300px;
     padding-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 500px;
+}
+
+#place-submit {
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #86c922;
+    box-shadow: 0 5px #67a30d;
+    font-weight: bold;
+    margin: 10px;
+    border-radius: 10px;
+    transition-duration: 0.1s;
+
+}
+
+#place-submit:hover {
+    background-color: #8cd421;
+    box-shadow: 0 4px #67a30d;
+    transform: translateY(1px)
+}
+
+#place-submit:active {
+    box-shadow: 0 0 #67a30d;
+    transform: translateY(5px);
+}
+
+@keyframes fadeInPlace {
+    0% {
+        height: 100px;
+        width: 400px;
+        opacity: 0;
+    }
+
+    100% {
+        height: 300px;
+        width: 400px;
+        opacity: 1;
+    }
+}
+
+#new-place-dialog {
+    border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 1;
+    box-shadow: 2px 2px 5px rgb(87, 86, 86);
     background-color: white;
+    border: none;
+    height: 300px;
+    width: 400px;
+    animation-name: fadeInPlace;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.5s
+}
+
+#place-name {
+    color: #001427;
+    background-color: #e4e6d7;
+    border-radius: 5px;
+    border-style: none;
+    padding: 7px;
+    margin: 5px;
+
 }
