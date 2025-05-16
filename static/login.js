@@ -80,4 +80,5 @@ loginForm.submit.onclick = async (e) => {
     case "brak w bazie":
       formError.innerText = "Incorrect login credentials";
   }
+  displayPlaces().catch()
 };
