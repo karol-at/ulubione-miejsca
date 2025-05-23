@@ -73,7 +73,7 @@ async function displayPlaces() {
     const places = await fetch("/places").then((res) => res.json());
     if (places.length == 0) {
         map.setView([51.5, 0], 13);
-        throw "error";
+        return;
     }
     map.setView([places[0].latitude, places[0].longitude], 13);
     places.forEach((element) => {
@@ -118,4 +118,4 @@ function createPlace(place) {
     );
 }
 
-displayPlaces().catch();
+displayPlaces()
