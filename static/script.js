@@ -31,7 +31,7 @@ document.onclick = (e) => {
     if (e.target.contains(newPlaceForm.dialog)) newPlaceForm.dialog.close();
 };
 
-newPlaceForm.submit.onclick = () => {
+newPlaceForm.submit.onclick = async () => {
     if (newPlaceForm.name.value === "") return;
     const place = {
         latitude: latlng.lat,
@@ -39,7 +39,7 @@ newPlaceForm.submit.onclick = () => {
         name: newPlaceForm.name.value,
         icon: "placeholder",
     };
-    fetch(
+    const res = await fetch(
         "/places",
         {
             method: "POST",
@@ -49,7 +49,9 @@ newPlaceForm.submit.onclick = () => {
             },
         },
     );
-    createPlace(place);
+    if (res.status == "ok") {
+        createPlace(place);
+    }
 };
 
 map.on("click", async (e) => {
@@ -63,10 +65,10 @@ async function displayPlaces() {
      */
     const places = await fetch("/places").then((res) => res.json());
     if (places.lenght == 0) {
-        throw "error"
+        throw "error";
     }
-    places.forEach(element => {
-        createPlace(element)
+    places.forEach((element) => {
+        createPlace(element);
     });
 }
 
@@ -80,10 +82,11 @@ function createPlace(place) {
         currentPlace,
     );
     currentPlace.querySelector(".location").innerHTML = place.name;
-    menu.appendChild(currentPlace)
+    menu.appendChild(currentPlace);
     placesLeaflet.push(
-        L.marker([place.latitude, place.longitude], {title: place.name}).bindPopup(place.name).addTo(map),
+        L.marker([place.latitude, place.longitude], { title: place.name })
+            .bindPopup(place.name).addTo(map),
     );
 }
 
-displayPlaces().catch()
+displayPlaces().catch();
