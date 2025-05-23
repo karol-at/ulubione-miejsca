@@ -75,7 +75,7 @@ async function displayPlaces() {
         map.setView([51.5, 0], 13);
         return;
     }
-    menu.innerHTML =""
+    menu.innerHTML = "";
     map.setView([places[0].latitude, places[0].longitude], 13);
     places.forEach((element) => {
         createPlace(element);
@@ -112,11 +112,14 @@ function createPlace(place) {
             icon: L.icon({
                 iconUrl: `/static/icons/${place.icon}`,
                 iconSize: [40, 40],
-                iconAnchor: [20, 38]
+                iconAnchor: [20, 38],
             }),
         })
             .bindPopup(place.name).addTo(map),
     );
 }
-
-displayPlaces()
+if (!document.getElementById("login-overlay")) {
+    displayPlaces()
+} else {
+    map.setView([51.5, 0], 13);
+}
