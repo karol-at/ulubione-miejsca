@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#F22EAC;}
+	.st1{display:none;opacity:0.35;fill:#F22EAC;enable-background:new    ;}
+	.st2{fill:none;stroke:#FFFFFF;stroke-width:5;stroke-linecap:round;stroke-miterlimit:10;}
+	.st3{fill:#FFFFFF;}
+</style>
+<g id="Warstwa_1">
+	<g id="Warstwa_1_00000150095184297999121760000001411023287140291752_">
+		<path class="st0" d="M87,38.5c0,32.1-36.7,60.4-36.7,60.4s-38-28-38-60.4C12.2,17.9,29,1.2,49.6,1.2S87,17.9,87,38.5z"/>
+		<circle class="st1" cx="49.6" cy="38.8" r="27.6"/>
+	</g>
+</g>
+<g id="Warstwa_2">
+	<line class="st2" x1="44.5" y1="26.6" x2="51.3" y2="40.8"/>
+	<line class="st2" x1="36" y1="32.8" x2="44.5" y2="26.6"/>
+	<path class="st2" d="M36,32.8"/>
+	<path class="st2" d="M30.6,26.8"/>
+	<line class="st2" x1="44.5" y1="26.6" x2="56.3" y2="26.9"/>
+	<line class="st2" x1="60.5" y1="34.5" x2="56.3" y2="26.9"/>
+	<line class="st2" x1="40.5" y1="46.2" x2="51.3" y2="40.8"/>
+	<line class="st2" x1="46.9" y1="55.5" x2="40.5" y2="46.2"/>
+	<line class="st2" x1="64.8" y1="55.9" x2="51.3" y2="40.8"/>
+	<circle class="st3" cx="43.7" cy="20.1" r="5.2"/>
+	<line class="st2" x1="36" y1="32.8" x2="30.6" y2="26"/>
+</g>
+</svg>

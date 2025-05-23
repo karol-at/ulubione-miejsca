@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#64AA53;}
+	.st1{display:none;opacity:0.39;fill:#FFFFFF;}
+	.st2{fill:#FFFFFF;}
+	.st3{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-linecap:round;stroke-miterlimit:10;}
+</style>
+<g id="Warstwa_1">
+	<path class="st0" d="M86.96,38.54c0,32.09-36.71,60.38-36.71,60.38S12.22,70.93,12.22,38.54c0-20.64,16.73-37.37,37.37-37.37
+		S86.96,17.9,86.96,38.54z"/>
+	<circle class="st1" cx="49.59" cy="38.81" r="27.59"/>
+</g>
+<g id="Warstwa_2">
+	<circle class="st2" cx="49.38" cy="25.37" r="11.23"/>
+	<circle class="st2" cx="38.02" cy="34.12" r="8.69"/>
+	<circle class="st2" cx="59.74" cy="33.86" r="6.31"/>
+	<circle class="st2" cx="49.38" cy="36.6" r="7.03"/>
+	<path class="st2" d="M61.11,56.09c0.88,4-13.61,7.19-14.49,3.19c-0.88-4,1.65-7.96,5.65-8.84C56.27,49.56,60.23,52.09,61.11,56.09z
+		"/>
+	<rect x="46.17" y="32.46" class="st2" width="6.79" height="27.21"/>
+	<line class="st3" x1="35.08" y1="59.67" x2="67.7" y2="59.67"/>
+	<path class="st2" d="M69.23,59.67c-0.35-2.32-2.05-4.32-4.47-4.93c-3.22-0.82-6.5,1.13-7.32,4.35c-0.05,0.19-0.05,0.39-0.02,0.58
+		H69.23z"/>
+</g>
+</svg>

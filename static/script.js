@@ -1,4 +1,4 @@
-let map = L.map("map").setView([51.505, -0.09], 13);
+let map = L.map("map");
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution:
@@ -21,11 +21,16 @@ const newPlaceWrapper = document.getElementById("new-place-wrapper");
 const newPlaceForm = {
     dialog: document.getElementById("new-place-dialog"),
     name: document.getElementById("place-name"),
+    icon: document.getElementById("icon"),
+    iconPreview: document.getElementById("icon-preview"),
     submit: document.getElementById("place-submit"),
 };
 let latlng;
 const placesHTML = [];
 const placesLeaflet = [];
+
+newPlaceForm.icon.onchange = (e) =>
+    newPlaceForm.iconPreview.src = `/static/icons/${e.target.value}`;
 
 document.onclick = (e) => {
     if (e.target.contains(newPlaceForm.dialog)) newPlaceForm.dialog.close();
@@ -33,11 +38,12 @@ document.onclick = (e) => {
 
 newPlaceForm.submit.onclick = async () => {
     if (newPlaceForm.name.value === "") return;
+    if (newPlaceForm.icon.value === "") return;
     const place = {
         latitude: latlng.lat,
         longitude: latlng.lng,
         name: newPlaceForm.name.value,
-        icon: "placeholder",
+        icon: newPlaceForm.icon.value,
     };
     const res = await fetch(
         "/places",
@@ -48,9 +54,10 @@ newPlaceForm.submit.onclick = async () => {
                 "Content-Type": "application/json",
             },
         },
-    );
+    ).then((res) => res.json());
     if (res.status == "ok") {
         createPlace(place);
+        newPlaceForm.dialog.close();
     }
 };
 
@@ -64,9 +71,11 @@ async function displayPlaces() {
      * @type {Place}
      */
     const places = await fetch("/places").then((res) => res.json());
-    if (places.lenght == 0) {
+    if (places.length == 0) {
+        map.setView([51.5, 0], 13);
         throw "error";
     }
+    map.setView([places[0].latitude, places[0].longitude], 13);
     places.forEach((element) => {
         createPlace(element);
     });
@@ -81,12 +90,33 @@ function createPlace(place) {
     placesHTML.push(
         currentPlace,
     );
-    currentPlace.querySelector(".location").innerHTML = place.name;
+    currentPlace.querySelector(".location-title").innerHTML = place.name;
+    currentPlace.querySelector(".location-delete").onclick = (e) => {
+        e.target.parentNode.remove();
+        placesLeaflet.filter((v) => v.options.title === place.name)[0].remove();
+        fetch("/places", {
+            method: "DELETE",
+            body: JSON.stringify({
+                place_id: place.id,
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+    };
     menu.appendChild(currentPlace);
     placesLeaflet.push(
-        L.marker([place.latitude, place.longitude], { title: place.name })
+        L.marker([place.latitude, place.longitude], {
+            title: place.name,
+            icon: L.icon({
+                iconUrl: `/static/icons/${place.icon}`,
+                iconSize: [40, 40],
+            }),
+        })
             .bindPopup(place.name).addTo(map),
     );
 }
 
 displayPlaces().catch();
+
+console.log(placesLeaflet);

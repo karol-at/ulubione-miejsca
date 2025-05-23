@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#AA669F;}
+	.st1{display:none;}
+	.st2{display:inline;fill:none;stroke:#FF9EF2;stroke-miterlimit:10;}
+	.st3{fill:#FFFFFF;}
+	.st4{fill:none;stroke:#FFFFFF;stroke-width:6;stroke-linecap:round;stroke-miterlimit:10;}
+</style>
+<g id="Warstwa_1">
+	<path class="st0" d="M86.96,38.54c0,32.09-36.71,60.38-36.71,60.38S12.22,70.93,12.22,38.54c0-20.64,16.73-37.37,37.37-37.37
+		S86.96,17.9,86.96,38.54z"/>
+</g>
+<g id="Warstwa_2" class="st1">
+	<rect x="25.61" y="20.07" class="st2" width="48.77" height="39.72"/>
+</g>
+<g id="Warstwa_3">
+	<path class="st3" d="M61.48,59.18H37.71c-3.17,0-5.74-2.57-5.74-5.74V36.43c0-1.68,0.74-3.28,2.01-4.37l11.88-10.14
+		c2.15-1.83,5.31-1.83,7.46,0L65.2,32.06c1.28,1.09,2.01,2.69,2.01,4.37v17.01C67.22,56.61,64.65,59.18,61.48,59.18z"/>
+	<line class="st4" x1="49.59" y1="18.73" x2="31.96" y2="33.78"/>
+	<line class="st4" x1="49.59" y1="18.73" x2="67.22" y2="33.78"/>
+</g>
+</svg>
