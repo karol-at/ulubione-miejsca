@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, make_response
 import sqlite3
 import user
 import places
+import os
 
 con = sqlite3.connect('baza.db')
 cur = con.cursor()
@@ -29,7 +30,8 @@ app = Flask(__name__)
 def index():
     session_hash = request.cookies.get('session_id')
     loged = user.loged_check(session_hash)
-    return render_template('index.jinja', logged_in=loged)
+    icons = os.listdir('static/icons')
+    return render_template('index.jinja', logged_in=loged, icons=icons)
 
 
 @app.route('/places', methods=['GET', 'POST', 'DELETE'])

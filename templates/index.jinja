@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="pl">
+{% macro icon_select(icon_name) -%}
+<option value="{{ icon_name }}">
+    {{ icon_name.split('.')[0] }}
+</option>
+{%- endmacro %}
 
 <head>
     <meta charset="UTF-8">
@@ -41,6 +46,15 @@
         <div id="new-place">
             <input type="text" placeholder="place name" id="place-name">
             <button id="place-submit">create new place</button>
+            <div id="icon-selector">
+                <select name="icon" id="icon">
+                <option value="">Select an icon</option>
+                    {% for icon in icons %}
+                    {{ icon_select(icon) }}
+                    {% endfor %}
+                </select>
+                <img src="" alt="" id="icon-preview">
+            </div>
         </div>
     </dialog>
     <template id="location-template">

@@ -21,11 +21,16 @@ const newPlaceWrapper = document.getElementById("new-place-wrapper");
 const newPlaceForm = {
     dialog: document.getElementById("new-place-dialog"),
     name: document.getElementById("place-name"),
+    icon: document.getElementById("icon"),
+    iconPreview: document.getElementById("icon-preview"),
     submit: document.getElementById("place-submit"),
 };
 let latlng;
 const placesHTML = [];
 const placesLeaflet = [];
+
+newPlaceForm.icon.onchange = (e) =>
+    newPlaceForm.iconPreview.src = `/static/icons/${e.target.value}`;
 
 document.onclick = (e) => {
     if (e.target.contains(newPlaceForm.dialog)) newPlaceForm.dialog.close();
@@ -33,11 +38,12 @@ document.onclick = (e) => {
 
 newPlaceForm.submit.onclick = async () => {
     if (newPlaceForm.name.value === "") return;
+    if (newPlaceForm.icon.value === "") return;
     const place = {
         latitude: latlng.lat,
         longitude: latlng.lng,
         name: newPlaceForm.name.value,
-        icon: "placeholder",
+        icon: newPlaceForm.icon.value,
     };
     const res = await fetch(
         "/places",
@@ -94,13 +100,19 @@ function createPlace(place) {
                 place_id: place.id,
             }),
             headers: {
-                'Content-Type': 'application/json'
-            }
+                "Content-Type": "application/json",
+            },
         });
     };
     menu.appendChild(currentPlace);
     placesLeaflet.push(
-        L.marker([place.latitude, place.longitude], { title: place.name })
+        L.marker([place.latitude, place.longitude], {
+            title: place.name,
+            icon: L.icon({
+                iconUrl: `/static/icons/${place.icon}`,
+                iconSize: [40, 40],
+            }),
+        })
             .bindPopup(place.name).addTo(map),
     );
 }
