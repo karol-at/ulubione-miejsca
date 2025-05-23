@@ -8,7 +8,7 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 /**
  * @typedef Place
  * @type {object}
- * @property {number} id - database ID
+ * @property {number} place_id - database ID
  * @property {number} latitude - geographic latitude
  * @property {number} longitude - geographic longitude
  * @property {string} name - the name for the place
@@ -97,7 +97,7 @@ function createPlace(place) {
         fetch("/places", {
             method: "DELETE",
             body: JSON.stringify({
-                place_id: place.id,
+                place_id: place.place_id,
             }),
             headers: {
                 "Content-Type": "application/json",
@@ -111,6 +111,7 @@ function createPlace(place) {
             icon: L.icon({
                 iconUrl: `/static/icons/${place.icon}`,
                 iconSize: [40, 40],
+                iconOffset: [40, 0]
             }),
         })
             .bindPopup(place.name).addTo(map),
