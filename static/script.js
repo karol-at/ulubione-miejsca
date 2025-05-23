@@ -75,6 +75,7 @@ async function displayPlaces() {
         map.setView([51.5, 0], 13);
         return;
     }
+    menu.innerHTML =""
     map.setView([places[0].latitude, places[0].longitude], 13);
     places.forEach((element) => {
         createPlace(element);
