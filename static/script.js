@@ -111,7 +111,7 @@ function createPlace(place) {
             icon: L.icon({
                 iconUrl: `/static/icons/${place.icon}`,
                 iconSize: [40, 40],
-                iconOffset: [40, 0]
+                iconAnchor: [20, 38]
             }),
         })
             .bindPopup(place.name).addTo(map),
@@ -119,5 +119,3 @@ function createPlace(place) {
 }
 
 displayPlaces().catch();
-
-console.log(placesLeaflet);
