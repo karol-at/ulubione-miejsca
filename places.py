@@ -38,12 +38,12 @@ def add_place(arg: place, session_hash: str):
 
 def get_places(session_hash: str) -> list[place]:
     join = execute_query(
-        'SELECT name, latitude, longitude, favourite, icon FROM places JOIN users USING(user_id) WHERE session_hash = ?',
+        'SELECT place_id, name, latitude, longitude, favourite, icon FROM places JOIN users USING(user_id) WHERE session_hash = ?',
         (
             str(session_hash),
         )
     )
-    return [{'name': e[0], 'latitude': e[1], 'longitude': e[2], 'favourite': e[3], 'icon': e[4]} for e in join]
+    return [{'place_id': e[0], 'name': e[1], 'latitude': e[2], 'longitude': e[3], 'favourite': e[4], 'icon': e[5]} for e in join]
 # (5, 2, 'aaa', 51.54414828417828, -0.022370441204975226, 1, 'placeholder', 'kotlet', 'bdbd58dbc6bc21e98cfce68a34f35b4a61b0ca166e7deec8cb8b4e58ec55ef46', '1744373342.2443497')
 
 
