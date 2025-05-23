@@ -68,3 +68,9 @@ def login():
     res = make_response({'status': 'ok'})
     res.set_cookie('session_id', loging)
     return res
+
+@app.route('/logout')
+def logout():
+    res = make_response(("", 303, {"Location": "/"}))
+    res.set_cookie("session_id", "0")
+    return res
