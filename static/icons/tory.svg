@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#00BDD2;}
+	.st1{display:none;opacity:0.35;fill:#FFFFFF;enable-background:new    ;}
+	.st2{fill:none;stroke:#FFFFFF;stroke-width:5;stroke-linecap:round;stroke-miterlimit:10;}
+	.st3{fill:#FFFFFF;}
+</style>
+<g id="Warstwa_1">
+	<g id="Warstwa_1_00000150095184297999121760000001411023287140291752_">
+		<path class="st0" d="M87,38.5c0,32.1-36.7,60.4-36.7,60.4s-38-28-38-60.4C12.2,17.9,29,1.2,49.6,1.2S87,17.9,87,38.5z"/>
+		<circle class="st1" cx="49.6" cy="38.8" r="27.6"/>
+	</g>
+</g>
+<g id="Warstwa_2">
+	<line class="st2" x1="37.4" y1="17.2" x2="37.4" y2="62.7"/>
+	<line class="st2" x1="62.6" y1="17.2" x2="62.6" y2="62.7"/>
+	<path class="st3" d="M66.7,29.1H33.6c-1.7,0-3.2-1.4-3.2-3.2v-2.1c0-1.7,1.4-3.2,3.2-3.2h33.1c1.7,0,3.2,1.4,3.2,3.2v2.1
+		C69.9,27.7,68.5,29.1,66.7,29.1z"/>
+	<path class="st3" d="M66.2,44.2H33.5c-1.9,0-3.4-1.5-3.4-3.4v-1.7c0-1.9,1.5-3.4,3.4-3.4h32.7c1.9,0,3.4,1.5,3.4,3.4v1.7
+		C69.5,42.7,68,44.2,66.2,44.2z"/>
+	<path class="st3" d="M66.4,59.2H33.9c-1.9,0-3.5-1.6-3.5-3.5v-1.5c0-1.9,1.6-3.5,3.5-3.5h32.5c1.9,0,3.5,1.6,3.5,3.5v1.5
+		C69.9,57.7,68.3,59.2,66.4,59.2z"/>
+</g>
+</svg>
