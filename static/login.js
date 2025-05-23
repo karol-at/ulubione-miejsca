@@ -47,6 +47,7 @@ registerForm.submit.onclick = async (e) => {
       break;
     case "nazwa zajęta":
       formError.innerText = "Usenrname taken";
+      formError.style.display = "block";
   }
 };
 
@@ -79,6 +80,8 @@ loginForm.submit.onclick = async (e) => {
       break;
     case "brak w bazie":
       formError.innerText = "Incorrect login credentials";
+      formError.style.display = "block";
+      return;
   }
-  displayPlaces().catch()
+  displayPlaces().catch();
 };
