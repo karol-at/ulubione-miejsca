@@ -55,6 +55,7 @@ newPlaceForm.submit.onclick = async () => {
             },
         },
     ).then((res) => res.json());
+    place.place_id = res.place_id;
     if (res.status == "ok") {
         createPlace(place);
         newPlaceForm.dialog.close();
