@@ -34,7 +34,7 @@ def add_place(arg: place, session_hash: str):
             arg['icon']
         )
     )
-
+    return execute_query('SELECT  place_id FROM places ORDER BY place_id DESC LIMIT 1',())[0][0]
 
 def get_places(session_hash: str) -> list[place]:
     join = execute_query(

@@ -37,11 +37,11 @@ def index():
 @app.route('/places', methods=['GET', 'POST', 'DELETE'])
 def place():
     if request.method == 'POST':
-        places.add_place(request.json, request.cookies.get('session_id'))
-        return {'status': 'ok'}
+        id = places.add_place(request.json, request.cookies.get('session_id'))
+        return {'status': 'ok', 'place_id': id}
     elif request.method == 'GET':
         return places.get_places(request.cookies.get('session_id'))
-        
+
     elif request.method == 'DELETE':
         places.del_places(request.cookies.get(
             'session_id'), request.json['place_id'])
@@ -68,6 +68,7 @@ def login():
     res = make_response({'status': 'ok'})
     res.set_cookie('session_id', loging)
     return res
+
 
 @app.route('/logout')
 def logout():
