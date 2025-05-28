@@ -89,6 +89,7 @@ async function displayPlaces() {
 
 function createPlace(place) {
     const currentPlace = template.content.cloneNode(true);
+    if (placesHTML.length === 0) menu.innerHTML = "";
     placesHTML.push(
         currentPlace,
     );
@@ -120,7 +121,7 @@ function createPlace(place) {
     );
 }
 if (!document.getElementById("login-overlay")) {
-    displayPlaces()
+    displayPlaces();
 } else {
     map.setView([51.5, 0], 13);
 }
