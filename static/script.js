@@ -59,6 +59,9 @@ newPlaceForm.submit.onclick = async () => {
     if (res.status == "ok") {
         createPlace(place);
         newPlaceForm.dialog.close();
+        newPlaceForm.name.value = "";
+        newPlaceForm.icon.value = "";
+        newPlaceForm.iconPreview.src = "";
     }
 };
 
@@ -93,8 +96,9 @@ function createPlace(place) {
     placesHTML.push(
         currentPlace,
     );
-    currentPlace.querySelector(".location-icon").src = `/static/icons/${place.icon}`
-    currentPlace.querySelector(".location-title").innerHTML = place.name
+    currentPlace.querySelector(".location-icon").src =
+        `/static/icons/${place.icon}`;
+    currentPlace.querySelector(".location-title").innerHTML = place.name;
     currentPlace.querySelector(".location-delete").onclick = (e) => {
         e.target.parentNode.remove();
         placesLeaflet.filter((v) => v.options.title === place.name)[0].remove();
